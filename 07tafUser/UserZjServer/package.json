@@ -1,0 +1,31 @@
+{
+  "name": "UserZjServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon  --exec babel-node -w src src/server.js",
+    "test": "mocha --compile js:babel-register -r babel-polyfill --timeout 3500"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@taf/taf-logs": "^0.1.1",
+    "@taf/taf-rpc": "^3.1.14",
+    "@up/taf-dcache-srf": "^1.2.4",
+    "lodash": "^4.16.6",
+    "morgan": "^1.8.2",
+    "mysql2": "^2.0.1",
+    "mysql2-promise": "^0.1.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-env": "^1.4.0",
+    "babel-register": "^6.26.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.1",
+    "should": "^13.2.3"
+  }
+}

@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "6"
+
+env:
+  - TAF_CONFIG=true
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm test
+  - npm run release

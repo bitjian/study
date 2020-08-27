@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>欢迎</h1>
+    <div>
+      <form action="/login" method="POST">
+        userName: <input type="text" name="username" /> <br />
+        password: <input type="password" name="password" /> <br />
+        <input type="submit" value="登录">
+        <input type="button" value="注册"  onclick="window.location.href='/goregist'">
+    </form>
+    </div>
+  </body>
+</html>

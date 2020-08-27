@@ -1,0 +1,23 @@
+module Test
+{   
+    struct HelloWorldReq
+    {
+        0 optional  string              data;           // 入参
+    };
+
+    struct HelloWorldRsp
+    {
+        0 optional  int                 iRet;           // 返回码
+        1 optional  string              message;        // 返回信息
+    };
+
+    interface Hello
+    {
+        int test();
+
+        // 接口调用方法名
+        int helloWorld(HelloWorldReq stReq, out HelloWorldRsp stRsp);
+        int inserData(HelloWorldReq stReq, out HelloWorldRsp stRsp);
+        int getData(HelloWorldReq stReq, out HelloWorldRsp stRsp);
+    };
+};

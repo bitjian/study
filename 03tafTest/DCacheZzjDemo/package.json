@@ -1,0 +1,15 @@
+{
+  "name": "DCacheZzjDemo",
+  "version": "1.0.0",
+  "description": "DCache api\r getString\r getStringWithVer\r getStringBatch\r setString\r setStringBatch\r setStringEx\r delString",
+  "main": "sample.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@taf/taf-dcache-helper": "^2.0.5"
+  }
+}

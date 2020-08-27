@@ -1,0 +1,17 @@
+{
+  "dbServant": "GSZQ.TgDataAsyncServer.TgDataAsyncObj@tcp -h 172.16.8.198 -t 60000 -p 10012",
+  "dcache": {
+    "servant": "DCache.GSZQProxyServer.ProxyObj@tcp -h 172.16.8.201 -t 60000 -p 15780",
+    "modulename": "GSZQTgView"
+  },
+  "DCacheWordTarget": "DCache.GSZQProxyServer.ProxyObj@tcp -h 172.16.8.201 -t 60000 -p 15780",
+  "DCacheWordName" : "GSZQTgUser",
+  "tgUserServant": "GSZQ.TgUserServer.TgUserObj@tcp -h 172.16.8.198 -t 60000 -p 10013",
+  "schedule": {
+    "syncSortDataSchedule": "*/5 * * * *",
+    "syncSensitiveWordSchedule": "*/5 * * * *",
+    "syncKeywordDataSchedule": "*/1 * * * *",
+    "delSortDataSchedule": "* * 1 * *",
+    "syncViewTagSchedule": "*/5 * * * *"
+  }
+}
