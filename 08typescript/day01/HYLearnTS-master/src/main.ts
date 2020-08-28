@@ -1,3 +1,2 @@
-const name = "abc";
+import './practice/01.概览';
 
-export {};

@@ -9,7 +9,7 @@
 // let name = "coderwhy";
 
 // 1.数组类型
-let num = 100;
+let num: number = 100;
 num = 20;
 num = 6.66;
 
@@ -158,4 +158,4 @@ const cba: IA | IB = {
   },
 };
 
-export {};
+export default {};
