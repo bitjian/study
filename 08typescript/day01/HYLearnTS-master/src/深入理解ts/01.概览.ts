@@ -11,7 +11,7 @@ type Bas = {};
 // const bar = Bar; // Error: "cannot find name 'Bar'" 不要把类型声明空间赋值给变量
 const someVar = Foo;  // 类的命名 既是类型声明空间 也是 一个变量声明空间
 let fon = 132
-// let bar: fon // 报错 fon不能当作类型注解
+// let bar: fon // 报错 fon不能当作类型注解,因为它是变量声明空间
 
 
 /**
@@ -185,6 +185,7 @@ type Callback = (data: string) => void;
 let nm: CoordinatesOther
 let strObj:TextOther
 
+export default {}
 
 
 

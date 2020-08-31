@@ -1,2 +1,2 @@
-import './practice/01.概览';
+import './深入理解ts/01.概览';
 
