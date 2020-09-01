@@ -20,7 +20,7 @@ const numAbs: Array<number> = [0o766, 1, 2]
 
 
 /**
- * 3.用接口表示
+ * 3.用接口表示(建议)
  */
 //  这里表示索引类型为数字时，值类型也必须是数值
 interface NumberArray {
@@ -35,7 +35,8 @@ let anyI: anyArray = [1,'2',true]
 /**
  * 类数组
  * 类数组不是数组类型，例如arguments
- * 所以不能将类数组赋值给数组类型
+ * 所以不能将类数组赋值给数组类型，
+ * 需要定义类数组接口
  */
 // function getName() {
 //   let args: number[] = arguments; // 报错，类型“IArguments”缺少类型“number[]”的以下属性: pop, push, concat, join 及其他 24 项
