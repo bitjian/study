@@ -12,3 +12,5 @@ let myFavoriteNumber = 'seven';
 let myFavoriteNum;  // 类型推断为 any
 myFavoriteNum = 'seven';
 myFavoriteNum = 7;
+
+export {}
