@@ -24,4 +24,15 @@ something = 'seven'
 something = 7
 console.log(something.myName.firstName)
 
+// 5.any类型，可以赋值给任意变量
+interface Obj extends Object{
+  [propname:string]: any
+}
+const anyVal: any = 5
+const strVal: string = anyVal
+let objVal: Obj = anyVal
+objVal = {
+  name: 'zzj'
+}
+
 export {}

@@ -82,3 +82,5 @@ let tom: PersonRead = {
 tom.age = 23
 // 报错， id为只读属性，不允许再修改
 // tom.id = 22
+
+export {}

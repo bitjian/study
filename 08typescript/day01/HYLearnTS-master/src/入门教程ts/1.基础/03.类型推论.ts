@@ -13,4 +13,9 @@ let myFavoriteNum;  // 类型推断为 any
 myFavoriteNum = 'seven';
 myFavoriteNum = 7;
 
+const anyArr = []  // 类型推断为 any[]
+anyArr.push('1')
+anyArr.push(2)
+anyArr.push(false)
+
 export {}
