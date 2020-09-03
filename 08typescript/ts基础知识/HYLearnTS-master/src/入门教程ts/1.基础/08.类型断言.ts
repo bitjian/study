@@ -51,7 +51,7 @@ interface HttpError extends Error {
 }
 
 // function isApiError(error: Error) {
-//   if (error instanceof ApiError) {  // 接口不能使用 instanceof 判断类型，此时就需要使用类型断言
+//   if (error instanceof ApiError) {  //报错 接口不能使用 instanceof 判断类型，此时就需要使用类型断言
 //       return true;
 //   }
 //   return false;
@@ -90,12 +90,12 @@ tom.run();
 /**
  * 2.类型断言的限制
  * 从上面的例子中，我们可以总结出：
- * 联合类型可以被断言为其中一个类型
- * 父类可以被断言为子类
- * 任何类型都可以被断言为 any
- * any 可以被断言为任何类型
- * 但并不是任何一个类型都可以被段艳伟任何另一个类型，
- * 需要满足若 A 兼容 B，那么 A 能够被断言为 B，B 也能被断言为 A
+ * （1）联合类型可以被断言为其中一个类型
+ * （2）父类可以被断言为子类
+ * （3）任何类型都可以被断言为 any
+ * （4）any 可以被断言为任何类型
+ * （5）但并不是任何一个类型都可以被段艳伟任何另一个类型，
+ * （6）需要满足若 A 兼容 B，那么 A 能够被断言为 B，B 也能被断言为 A
  */
 interface Animal {
   name: string;
