@@ -39,11 +39,13 @@ new Promise(function (resolve) { // 宏任务 1-2  [2 10 1 3 5 6]
   setTimeout(function () {            // 宏任务 2-2  [ 2 10 1 3 5 6 4 7]
     console.log('7')
     new Promise(function (resolve) {
+      console.log('12')
       setTimeout(function () {  // 宏任务 3-1 [ 2 10 1 3 5 6 4 7 8]
         console.log('8')
       });
       resolve()
     }).then(function () {
+      console.log('11')
       setTimeout(function () { // 宏任务 4 - 1 [ 2 10 1 3 5 6 4 7 8 9]
         console.log('9')
       });
