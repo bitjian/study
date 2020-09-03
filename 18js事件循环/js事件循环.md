@@ -1,5 +1,5 @@
 ### 同步和异步
-同步就代码之上而下的执行，比如一般的逻辑处理， ~~（在async函数中的await...）~~
+同步就代码之上而下的执行，比如一般的逻辑处理，一般的函数调用 ~~（在async函数中的await...）~~
 异步：就是代码不会立即执行，会放到异步队列中，等主程序执行完，再来调用
 
 ### 事件循环
@@ -46,7 +46,7 @@ process.nextTick(function() {           // 微任务1-1 [2 10 1]
   console.log('1');                   
 })
 
-new Promise(function (resolve) {      // [2]
+new Promise(function (resolve) {      // 主程序 [2]
   console.log('2');                   
   resolve();                          
 }).then(function () {             // 微任务1-2  [2 10 1 3]         
@@ -56,7 +56,7 @@ new Promise(function (resolve) {      // [2]
   });
 });
 
-setTimeout(function () {          // 宏任务 1-1    [2 10 1 3 5]
+setTimeout(function () {        // 宏任务 1-1    [2 10 1 3 5]
   console.log('5')                    
 });
 
@@ -66,30 +66,27 @@ new Promise(function (resolve) {
   });
   resolve()
 }).then(function () {             // 微任务 1-3       
-  setTimeout(function () {            // 宏任务 2-2  [ 2 10 1 3 5 6 4 7]
+  setTimeout(function () {            // 宏任务 2-2
     console.log('7')
     new Promise(function (resolve) {
-      setTimeout(function () {  // 宏任务 3-1 [ 2 10 1 3 5 6 4 7 8]
+      console.log('12')            // 这也是宏任务 2-2  [ 2 10 1 3 5 6 4 7 12]
+      setTimeout(function () {  // 宏任务 3-1 [ 2 10 1 3 5 6 4 7 12 11 8]
         console.log('8')
       });
       resolve()
     }).then(function () {
-      setTimeout(function () { // 宏任务 4 - 1 [ 2 10 1 3 5 6 4 7 8 9]
+      console.log('11')        // 微任务 2-1  [ 2 10 1 3 5 6 4 7 12 11]
+      setTimeout(function () { // 宏任务 4 - 1 [ 2 10 1 3 5 6 4 7 12 11 8 9]
         console.log('9')
       });
     });
   });
 });
-console.log('10')         // [2 10]
+console.log('10')         // 主程序 [2 10]
 
 ```
 分析一下：
-1、先找同步代码 分别是[2,10]
-2、再找微任务 [1,3]
-3、主程序中放入的微任务执行完毕，再找主程序中的宏任务和之前微任务中的宏任务 [5,6,4,7,8]
-4、主程序中的宏任务和之前微任务放入宏任务队列中的函数执行完毕
-5、再找微任务，没有输出，继续找微任务中的宏任务 [9]
-7、最后输出顺序 [ 2 10 1 3 5 6 4 7 8 9]
+7、最后输出顺序 [ 2 10 1 3 5 6 4 7 12 11 8 9]
 
 ### 总结
 
