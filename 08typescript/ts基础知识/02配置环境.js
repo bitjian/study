@@ -1,5 +1,8 @@
 // 拥有node环境
 // 通过npm安装typescript,通过tsc来编译typescript
+// npm install typescript -g
+// 查看版本检查是否安装成功
+// tsc --version
 // 通过tsc来将typescript文件编译成javascript
 
 // webpack配置
@@ -17,7 +20,7 @@
 // 开始webpack配置
 // cnpm/npm install webpack webpack-cli webpack-dev-server -D
 // 在package.json 里配置脚本
-// "build": "cross-env NODE_ENV=development webpack-dev-server --mode=development --config build/webpack.config.js"
+// "serve": "cross-env NODE_ENV=development webpack-dev-server --mode=development --config build/webpack.config.js"
 // 安装 cross-env 判断当前是开发环境还是生产环境
 // 安装 ts-loader 来解析 .ts文件
 // rules: [
