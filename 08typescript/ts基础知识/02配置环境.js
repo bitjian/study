@@ -1,5 +1,8 @@
 // 拥有node环境
 // 通过npm安装typescript,通过tsc来编译typescript
+// npm install typescript -g
+// 查看版本检查是否安装成功
+// tsc --version
 // 通过tsc来将typescript文件编译成javascript
 
 // webpack配置
