@@ -179,3 +179,5 @@ interface Cat5 {
 const tom5 = getCacheData5<Cat5>('tom');
 // 这里tom5会被类型推论为 Cat5类型
 tom.run();
+
+export {}
