@@ -36,6 +36,6 @@ sub2.name = 'bbb'
 sub1.sayName() // aaa
 sub2.sayName() // bbb
 sub1.supArr.push('c') // ['a', 'b'] -> ['a', 'b', 'c']
-sub2.sayArr()
+sub2.sayArr() // -> ['a', 'b', 'c']
 
-export {}
+// export {}
