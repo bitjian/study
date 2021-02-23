@@ -13,7 +13,7 @@ function myPromise(constructor) {
   }
   // 编写 reject方法
   function reject(value) {
-    if (self.status === 'pedding') {
+    if (self.status === 'pendding') {
       self.rejectVal = value
       self.status = 'rejected'
     }
