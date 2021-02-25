@@ -4,10 +4,8 @@
 *.7z
 /07TgWebServer
 **/.git
-/15vue-springbootDemo
+/15vue-springbootDemo/upload
 /mall
-/vue-login-manage-system-master
-/饿了么练习项目代码
 /学习总结/密码
 *.rar
 /zhcc/
