@@ -1,5 +1,5 @@
-function myCall(context) {
-  if(typeof context !== 'function') {
+Function.prototype.myCall = function(context) {
+  if(typeof this !== 'function') {
     console.error("type error")
   }else {
     // 获取第一个参数后面的参数
