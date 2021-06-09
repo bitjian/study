@@ -56,7 +56,7 @@ const ilink1:ILink = { url: "string1" };
 const ilink2:ILink = { url: "string2" };
 const ilink3:ILink = { url: "string3" };
 const inputParams:arrLink = [ilink1,ilink2,ilink3]  // 如果新增属性不是可选属性，则需要声明定义的属性值，否则报错
-filterByTerm(inputParams, "java",key)
+const filterItems = filterByTerm(inputParams, "string",key)
 console.log(ipost)
-
+console.log(filterItems);
 export {}

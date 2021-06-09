@@ -21,5 +21,6 @@ var ilink1 = { url: "string1" };
 var ilink2 = { url: "string2" };
 var ilink3 = { url: "string3" };
 var inputParams = [ilink1, ilink2, ilink3]; // 如果新增属性不是可选属性，则需要声明定义的属性值，否则报错
-filterByTerm(inputParams, "java", key);
+var filterItems = filterByTerm(inputParams, "string", key);
 console.log(ipost);
+console.log(filterItems);
