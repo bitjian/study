@@ -17,9 +17,10 @@ server.on('listening',() => {
 // connection 每次客户端建立连接就会触发回调， 参数socker是server实例
 server.on('connection', socker => {
   // 客户端发送数据（write方法）就会触发data事件接收
+  console.log('1111111111connection')
   socker.on('data', buffer => {
     const msg = buffer.toString();
-    console.log(msg);
+    // console.log(msg);
     socker.write(Buffer.from('你好 '+ msg))
   })
 })
