@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>$emit 和 $on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <button @click="boost">触发事件</button>
+    </div>
+
+    <script>
+      new Vue({
+        el:"#root",
+        data() {
+          return {
+            message: 'hello world'
+          }
+        },
+        created() {
+          this.$on('my_events',this.handleEvent)
+        },
+        methods: {
+          handleEvent(e) {
+            console.log(this.message, e)
+          },
+          boost(e) {
+            this.$emit('my_events',' my event')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <title>vue 指令的使用</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <div v-loading="isLoading">{{data}}</div>
+    <button @click="update">更新</button>
+  </div>
+
+  <script>
+    // 创建vue 指令
+    Vue.directive("loading", {
+      // bind inserted update componentUpdated unbind
+      update(el, binding, vnode) {
+        if (binding.value) {
+          const div = document.createElement("div")
+          div.innerText = "加载中..."
+          div.setAttribute("id", "loading")
+          div.style.position = "absolute"
+          div.style.left = 0
+          div.style.top = 0
+          div.style.width = "100%"
+          div.style.height = "100%"
+          div.style.justifyContent = "center"
+          div.style.alignItems = "center"
+          div.style.color = "white"
+          div.style.background = "rgba(0, 0, 0, .7)"
+          document.body.append(div)
+        } else {
+          document.body.removeChild(document.getElementById('loading'))
+        }
+      }
+    })
+    new Vue({
+      el: "#root",
+      data() {
+        return {
+          isLoading: false,
+          data: ''
+        }
+      },
+      created() {
+        this.$on('my_events', this.handleEvent)
+      },
+      methods: {
+        update() {
+          this.isLoading = true
+          this.data=''
+          setTimeout(() => {
+            this.data="加载完成"
+            this.isLoading = false
+          },1000)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
