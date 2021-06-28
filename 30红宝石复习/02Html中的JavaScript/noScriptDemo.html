@@ -3,15 +3,37 @@
 
 <head>
   <title>Example HTML Page</title>
-  <script defer="defer" src="example1.js"></script>
-  <script defer="defer" src="example2.js"></script>
 </head>
+<style>
+  .outer {
+    background-color:aqua;
+    float: none;
+  }
+  .d1 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    /* display: block; */
+    /* float: left; */
+  }
+  .d2 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    float: left;
+    margin-left: 20px;
 
+  }
+</style>
 <body>
   <!-- 浏览器支持js脚步 则看不到这个段落 -->
   <noscript>
     <p>This page requires a JavaScript-enabled browser.</p>
   </noscript>
+  <div class="outer">
+    <div class="d1"></div>
+    <div class="d2">This page requires a JavaScript-enabled </div>
+  </div>
 </body>
 
 </html>
