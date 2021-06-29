@@ -32,4 +32,4 @@ class ScorePanel {
   }
 }
 
-export  {ScorePanel}
+export default ScorePanel

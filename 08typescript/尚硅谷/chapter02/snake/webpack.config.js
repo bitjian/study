@@ -10,6 +10,10 @@ module.exports = {
 
     // 指定入口文件
     entry: "./src/index.ts",
+    devServer: {
+        host: '127.0.0.1',
+        port: 8000,
+    },
 
     // 指定打包文件所在目录
     output: {
