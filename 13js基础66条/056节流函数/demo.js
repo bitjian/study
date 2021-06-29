@@ -1,6 +1,7 @@
 // 节流函数，在规定时间内只触发一次
-// let timer 
 // function throttle(func, time) {
+    // let timer 
+
 //   return function() {
 //     let context = this
 //     let arg = arguments
@@ -16,7 +17,6 @@
 //   }
 // }
 
-const { table } = require("console");
 
 
 // throttle((message) => {console.log(message),2000})('123')
@@ -38,6 +38,8 @@ function throttleDate(func, delay) {
 
 let t1 = throttleDate((message) => {console.log(message)},1000)
 t1('1')
+t1('1.1')
+t1('1.12')
 setTimeout(() => {
 t1('2')
 }, 1000);
