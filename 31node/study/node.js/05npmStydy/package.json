@@ -1,10 +1,12 @@
 {
-  "name": "05npmStydy",
+  "name": "05npmstudyzzj",
   "version": "1.0.0",
   "description": "hello world",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "start": "cross-env NODE_ENV=production & node ./test1.js && node ./test2.js",
+    "echo": "echo $npm_package_author"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,10 @@
     "underscore": "~1.1.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "gulp": "^4.0.2"
+  },
+  "info": {
+    "username": "zzj1183048003"
   }
 }
