@@ -1,0 +1,4 @@
+[2021-07-11T22:48:58.022] [INFO] default - [Object: null prototype] { x: '3', y: '4' }
+[2021-07-11T22:51:16.869] [INFO] default - x=3&y=4
+[2021-07-11T22:53:27.829] [INFO] default - id%3D3%26city%3D%E5%8C%97%E4%BA%AC%26url%3Dhttps%3A%2F%2Fwww.baidu.com
+[2021-07-11T22:56:12.008] [INFO] default - id=3&city=北京&url=https://www.baidu.com
