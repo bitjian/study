@@ -13,3 +13,11 @@
   href: 'https://www.baidu.com:443/ad/index.html?id=8&name=mouse#tag=110'
 }
 [2021-07-08T12:44:40.199] [INFO] default - URLSearchParams { 'https://www.baidu.com:443/ad/index.html?id' => '8', 'name' => 'mouse#tag=110' }
+[2021-07-11T22:34:58.069] [INFO] default - testttt
+[2021-07-11T22:35:24.697] [INFO] default - https://www.baidu.com:443/ad/index.html?id=8&name=mouse#tag=110
+[2021-07-11T22:40:44.648] [INFO] default - a url:/one/two/four
+[2021-07-11T22:40:44.651] [INFO] default - b url:http://example.com/one
+[2021-07-11T22:40:44.651] [INFO] default - c url:http://example.com/two
+[2021-07-11T22:41:38.132] [INFO] default - c url:http://example.com/two
+[2021-07-11T22:41:59.797] [INFO] default - c url:http://example.com/two
+[2021-07-11T22:42:08.062] [INFO] default - c url:http://example.com/two
