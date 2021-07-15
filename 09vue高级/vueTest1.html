@@ -12,12 +12,15 @@
       new Vue({
         el:"#root",
         data() {
+          // 如果这个数据是不变的，就不用放入data的return 进行响应式处理
+          this.options = [{field:'123',val:'select1'}]
           return {
             message: 'hello world'
           }
         },
         created() {
-          this.$on('my_events',this.handleEvent)
+          // this.$on('my_events',this.handleEvent)
+          console.log(this.options);
         },
         methods: {
           handleEvent(e) {
