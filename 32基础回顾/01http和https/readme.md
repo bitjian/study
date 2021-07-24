@@ -11,7 +11,7 @@
 > Http只能把请求资源一次请求全部带过来，而Https支持断点传输，通过请求头range头域可以传输一部分数据返回状态码206
 # http和https区别
 - 加密传输
-> http请求，基于tcp之上,传输都是明文的，而http1.1基于SSL/TLS，SSL/TLS基于tcp之上，传输是进行加密的。
+> http请求，基于tcp之上,传输都是明文的，而https基于SSL/TLS，SSL/TLS基于tcp之上，传输是进行加密的。
 - https需要CA证书，一般都要钱
 - https可以防止运营商劫持
 - http端口号是80,https端口号是443,
