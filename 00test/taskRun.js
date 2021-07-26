@@ -1,16 +1,16 @@
-setTimeout(function() {
-  console.log(1)
-}, 0);
-new Promise(function(resolve, reject) {
-  console.log(2);
-  resolve()
-}).then(function() {
-  console.log(3)
-});
-process.nextTick(function () {
-  console.log(4)
-})
-console.log(5)
+// setTimeout(function() {
+//   console.log(1)
+// }, 0);
+// new Promise(function(resolve, reject) {
+//   console.log(2);
+//   resolve()
+// }).then(function() {
+//   console.log(3)
+// });
+// process.nextTick(function () {
+//   console.log(4)
+// })
+// console.log(5)
 
 // process.nextTick(function() {           // 微任务1-1 [2 10 1]
 //   console.log('1');                   
@@ -30,28 +30,28 @@ console.log(5)
 //   console.log('5')                    
 // });
 
-new Promise(function (resolve) { // 宏任务 1-2  [2 10 1 3 5 6]
-  setTimeout(function () {            
-    console.log('6')                  
-  });
-  resolve()
-}).then(function () {             // 微任务 1-3       
-  setTimeout(function () {            // 宏任务 2-2  [ 2 10 1 3 5 6 4 7]
-    console.log('7')
-    new Promise(function (resolve) {
-      console.log('12')
-      setTimeout(function () {  // 宏任务 3-1 [ 2 10 1 3 5 6 4 7 8]
-        console.log('8')
-      });
-      resolve()
-    }).then(function () {
-      console.log('11')
-      setTimeout(function () { // 宏任务 4 - 1 [ 2 10 1 3 5 6 4 7 8 9]
-        console.log('9')
-      });
-    });
-  });
-});
+// new Promise(function (resolve) { // 宏任务 1-2  [2 10 1 3 5 6]
+//   setTimeout(function () {            
+//     console.log('6')                  
+//   });
+//   resolve()
+// }).then(function () {             // 微任务 1-3       
+//   setTimeout(function () {            // 宏任务 2-2  [ 2 10 1 3 5 6 4 7]
+//     console.log('7')
+//     new Promise(function (resolve) {
+//       console.log('12')
+//       setTimeout(function () {  // 宏任务 3-1 [ 2 10 1 3 5 6 4 7 8]
+//         console.log('8')
+//       });
+//       resolve()
+//     }).then(function () {
+//       console.log('11')
+//       setTimeout(function () { // 宏任务 4 - 1 [ 2 10 1 3 5 6 4 7 8 9]
+//         console.log('9')
+//       });
+//     });
+//   });
+// });
 // console.log('10')         // [2 10]
 
 // const fun1 = (cb) => {
@@ -90,28 +90,38 @@ new Promise(function (resolve) { // 宏任务 1-2  [2 10 1 3 5 6]
 
 // console.log('开始222');
 
-let consoleLogA = function () {
-  consoleLogB()
-  console.log('a')
-}
-let consoleLogC = function () {
-  console.log('c')
-}
-let consoleLogD = function () {
-  console.log('d')
-}
-let consoleLogB = function () {
-  new Promise((resolve, reject) => {
-    console.log('b')
-    resolve()
-  }).then(() => {
-    consoleLogC()
-    // setTimeout(() => {
-    //   consoleLogC()
-    // }, 3000);
-  })
-  consoleLogD()
-  return ''
-}
+// let consoleLogA = function () {
+//   consoleLogB()
+//   console.log('a')
+// }
+// let consoleLogC = function () {
+//   console.log('c')
+// }
+// let consoleLogD = function () {
+//   console.log('d')
+// }
+// let consoleLogB = function () {
+//   new Promise((resolve, reject) => {
+//     console.log('b')
+//     resolve()
+//   }).then(() => {
+//     consoleLogC()
+//     // setTimeout(() => {
+//     //   consoleLogC()
+//     // }, 3000);
+//   })
+//   consoleLogD()
+//   return ''
+// }
 
-consoleLogA()
+// consoleLogA()
+
+let arr = [1,2,3,4,5,6]
+arr.forEach(item => {
+  console.log(`each ${item}`);
+  new Promise(resolve =>{
+    resolve(item)
+  }).then(res =>{
+    console.log(`then ${res}`);
+  })
+})
