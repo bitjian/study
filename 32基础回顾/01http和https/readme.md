@@ -2,13 +2,13 @@
 -  更多的错误标识
 > 新增了24个错误代码，比如410 表示服务器某资源被永久删除
 - 支持长连接
-> 支持通过keep-alive，http每次请求都会重新建立tcp连接，https与服务器建立连接同保持一段时间，在一个tcp上可以进行多次请求
+> 支持通过keep-alive，http每次请求都会重新建立tcp连接，1.1与服务器建立连接同保持一段时间，在一个tcp上可以进行多次请求
 - 更多的缓存处理规则
-> http 只支持 if-modify-since,expire，而https新增了 entity-tag, if-Unmodify-since,if-Match, if-No-Match
+> http 只支持 if-modify-since,expire，而http 1.1新增了 entity-tag, if-Unmodify-since,if-Match, if-No-Match
 - host头处理
-> Http认为一个服务器只绑定一个IP，请求没有带上hostname，但现在虚拟机技术流行起来，Https的每次请求会带上host，没有的话会报错
+> Http认为一个服务器只绑定一个IP，请求没有带上hostname，但现在虚拟机技术流行起来，Http1.1的每次请求会带上host，没有的话会报错
 - 带宽优化及网络连接使用
-> Http只能把请求资源一次请求全部带过来，而Https支持断点传输，通过请求头range头域可以传输一部分数据返回状态码206
+> Http只能把请求资源一次请求全部带过来，而Http1.1支持断点传输，通过请求头range头域可以传输一部分数据返回状态码206
 # http和https区别
 - 加密传输
 > http请求，基于tcp之上,传输都是明文的，而http1.1基于SSL/TLS，SSL/TLS基于tcp之上，传输是进行加密的。
