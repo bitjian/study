@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue $attrs和$listeners</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+  <div id="app">
+    <my-button size="small" type="primary" plain @click="doClick">我的按钮，可以透传属性和方法</my-button>
+    <!-- <el-button type="primary">按钮</el-button> -->
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script type="module">
+  // import MyButton from './MyButton.vue'
+  // 全局注册组件
+//   Vue.component("my-button", {
+//   name: 'MyButton',
+//   inheritAttrs:false, // 让没有在props里什么的属性，也可以绑定到子元素上，不然绑定的是子元素的根元素上
+//   props: {
+
+//   },
+//   computed: {
+//     customAttrs() {
+//       return {
+//         size: 'medium',
+//         ...this.$attrs
+//       }
+//     }
+//   },
+//   template:'<el-button v-bind="customAttrs" v-on="$listeners"><slot/></el-button>'
+// })
+  // 局部注册组件
+  let MyButton = {
+  name: 'MyButton',
+  inheritAttrs:false, // 让没有在props里什么的属性，也可以绑定到子元素上，不然绑定的是子元素的根元素上
+  props: {
+
+  },
+  computed: {
+    customAttrs() {
+      return {
+        size: 'medium',
+        ...this.$attrs  // 通过 this.$attrs 获取父组件绑定的属性
+      }
+    }
+  },
+  // 通过$listener获取父组件绑定的事件
+  // 通过 v-bind="customAttrs" v-on="$listeners"  将父组件传过来的属性和方法传给子组件
+  template:'<el-button v-bind="customAttrs" v-on="$listeners"><slot/></el-button>'
+}
+  new Vue({
+    el:'#app',
+    data() {
+      return {
+
+      }
+    },
+    components: {
+      MyButton
+    },
+    methods: {
+      doClick() {
+        alert('啊！你竟然点我！')
+      }
+    }
+  })
+</script>
+</html>
