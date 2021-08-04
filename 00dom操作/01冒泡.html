@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="parent" >
+    <div style="line-height: 40px; background: blue;">zzj</div>
+    <div style="line-height: 40px; background-color: aqua;">sjj</div>
+  </div>
+  <div id="showText" style="background-color: black"></div>
+</body>
+<script>
+  function clickBuble(e) {
+    console.log(e.target.innerText)
+    var show = document.getElementById("showText")
+    show.innerHTML = `<span style="color:yellow;">你现在点击的是${e.target.innerText}</span>`
+  }
+  window.onload = function () {
+    var par = document.getElementsByClassName("parent")[0]
+    console.log(par);
+    par.onclick = clickBuble
+  }
+
+
+</script>
+
+</html>
