@@ -53,3 +53,5 @@ class SocketAdapter extends PlugForThree implements Adapter {
   adapter.socket(plug.num)
 })()
 
+
+export {}
