@@ -70,3 +70,5 @@ class GameComputer extends Computer{
   gameComputer.setChip(coreChip)
   gameComputer.getName()
 })()
+
+export {}
