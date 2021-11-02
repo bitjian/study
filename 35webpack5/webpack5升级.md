@@ -190,6 +190,59 @@ webpack5 支持的新版本里面需要配置的更加清楚,patterns属性里�
       ]
     })
 ```
+#### 7.升级webpack5后，scss文件无法使用：export
+升级之后，在scss文件定义变量后导出到js文件中，会发现导出为空
+```scss
+  $--color-primary: #1890ff;
+  :export {
+    theme: $--color-primary;
+  }
+```
+```js
+import variables from '@/styles/element-variables.scss'
+console.log('variables', variables) // 此时变成了空对象{}
+```
+需要给这些scss变量文件增加loader处理，在webpack.base.conf.js添加一下文件的loader处理
+```js
+     {
+        test: /\element-variables.scss|variables.scss$/i,
+        include: [resolve('src/styles')],
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                mode: "local",
+              },
+            },
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
+```
+在utils.js里对之前处理scss的loader配置里增加exclude排除对应的文件
+```js
+  exports.styleLoaders = function (options) {
+  const output = []
+  const loaders = exports.cssLoaders(options)
+
+  for (const extension in loaders) {
+    const loader = loaders[extension]
+    output.push({
+      test: new RegExp('\\.' + extension + '$'),
+      exclude: [resolve('src/styles/element-variables.scss'), resolve('src/styles/variables.scss')],
+      use: loader
+    })
+  }
+  return output
+}
+```
 ### 3.速度优化
 #### 1.增加文件缓存
 通过 cache: filesystem 可以将构建过程的 webpack 模板进行缓存，大幅提升二次构建速度、打包速度，当构建突然中断，二次进行构建时，可以直接从缓存中拉取，可提速 90% 左右。
@@ -269,6 +322,25 @@ npm i -D thread-loader
     chunkIds: 'deterministic', // 代码块名称的生成规则
   }
 ```
+注释掉webpack.NamedChunksPlugin插件，webpack5已经不再使用了
+```js
+    // new webpack.NamedChunksPlugin(chunk => {
+    //   if (chunk.name) {
+    //     return chunk.name
+    //   }
+    //   const modules = Array.from(chunk.modulesIterable)
+    //   if (modules.length > 1) {
+    //     const hash = require('hash-sum')
+    //     const joinedHash = hash(modules.map(m => m.id).join('_'))
+    //     let len = nameLength
+    //     while (seen.has(joinedHash.substr(0, len))) len++
+    //     seen.add(joinedHash.substr(0, len))
+    //     return `chunk-${joinedHash.substr(0, len)}`
+    //   } else {
+    //     return modules[0].id
+    //   }
+    // }),
+```
 #### 4.替换压缩 js 资源的插件和css插件
 使用 CssMinimizerWebpackPlugin压缩 CSS 文件 替换之前的 optimize-css-assets-webpack-plugin
 >和 optimize-css-assets-webpack-plugin 相比，css-minimizer-webpack-plugin 在 source maps 和 assets 中使用查询字符串会更加准确，而且支持缓存和并发模式下运行。
@@ -281,6 +353,13 @@ npm i -D thread-loader
     runtimeChunk: 'true'
   }
 ```
+#### 6.SplitChunksPlugin插件开箱即用
+可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到一个新生成的 chunk。
+webpack 将根据以下条件自动拆分 chunks：
+新的 chunk 可以被共享，或者模块来自于  node_modules  文件夹；
+新的 chunk 体积大于 20kb（在进行 min+gz 之前的体积）；
+当按需加载 chunks 时，并行请求的最大数量小于或等于 30；
+当加载初始化页面时，并发请求的最大数量小于或等于 30；
 ### 参考
 [webpack Plugins](https://webpack.docschina.org/plugins/)  
 [从 v4 升级到 v5](https://webpack.docschina.org/migrate/5/)  
