@@ -116,12 +116,15 @@
 
 // consoleLogA()
 
-let arr = [1,2,3,4,5,6]
-arr.forEach(item => {
-  console.log(`each ${item}`);
-  new Promise(resolve =>{
-    resolve(item)
-  }).then(res =>{
-    console.log(`then ${res}`);
-  })
-})
+// let arr = [1,2,3,4,5,6]
+// arr.forEach(item => {
+//   console.log(`each ${item}`);
+//   new Promise(resolve =>{
+//     resolve(item)
+//   }).then(res =>{
+//     console.log(`then ${res}`);
+//   })
+// })
+
+
+Promise.resolve(Promise.resolve(1)).then()
