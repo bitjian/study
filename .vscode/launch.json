@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "启动程序",
-      "program": "${workspaceFolder}\\13js基础66条\\056节流函数\\demo.js",
+      "program": "${workspaceFolder}\\31node\\study\\Node.js\\03parseSqlFiel\\parseSql.js",
     }
   ]
 }
