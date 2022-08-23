@@ -6,7 +6,7 @@ function findNum(arr, target) {
   let left = 0
   let right = arr.length -1
   while(left <= right) {
-    const mid = parseInt(( right + left ) / 2)
+    const mid = Math.floor(( right + left ) / 2)
     if(arr[mid] === target) {
       return mid
     }else if (arr[mid] < target) {
