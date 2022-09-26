@@ -1,0 +1,6 @@
+{
+  "cors": true,
+  "jwt": {
+    "secret": "abcdefg"
+  }
+}
