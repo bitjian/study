@@ -17,3 +17,6 @@ dist/
 /仿mac系统界面/
 /vue-login-manage-system-master/
 /20*/
+*.txt
+*.xlsx
+*.sql

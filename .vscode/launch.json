@@ -9,6 +9,15 @@
       "request": "launch",
       "name": "启动程序",
       "program": "${workspaceFolder}\\31node\\study\\Node.js\\03parseSqlFiel\\parseSql.js",
+    },
+    {
+      "name": "txt2sql",
+      "program": "${workspaceFolder}/00test/txt2sql.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
     }
   ]
 }
