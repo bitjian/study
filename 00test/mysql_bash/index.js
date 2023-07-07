@@ -1,8 +1,9 @@
 const xlsx = require('node-xlsx')
 const fs = require('fs')
 const path = require('path')
-const filePath = path.join(__dirname, '../cgb.xlsx')
+const filePath = path.join(__dirname, './cgb.xlsx')
 const datasheet = xlsx.parse(filePath)
+const knex = require('./db')
 const dict = {}
 const dict2 = {}
 const codeList = datasheet[2].data.splice(1).map(item => dict[item[13]] = item[16])

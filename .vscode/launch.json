@@ -18,6 +18,24 @@
         "<node_internals>/**"
       ],
       "type": "node"
+    },
+    {
+      "name": "Launch getXlsx",
+      "program": "${workspaceFolder}/00test/getXlsx.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
+      "name": "parseXml",
+      "program": "${workspaceFolder}/00test/mysql_bash/index2.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
     }
   ]
 }
