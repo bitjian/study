@@ -24,3 +24,5 @@ dist/
 **/**/**/**/**/db.js
 **/**/**/db.js
 **/db.js
+**.http
+**/img/*.png

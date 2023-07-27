@@ -36,6 +36,15 @@
         "<node_internals>/**"
       ],
       "type": "node"
+    },
+    {
+      "name": "getPhoto",
+      "program": "${workspaceFolder}/00getPhoto/getphoto.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
     }
   ]
 }
