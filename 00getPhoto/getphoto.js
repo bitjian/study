@@ -37,7 +37,7 @@ class GetPhoto {
         jumpIndex = 1
         return null
       }
-      if(jumpIndex) {
+      if(jumpIndex && item !== '') {
         this.reqBody = JSON.parse(item)
         return null
       }
